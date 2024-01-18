@@ -1,17 +1,21 @@
 const UserInpCard = (props) => {
-    const { udetail, setSelectedUser } = props;
+    const { udetail, setSelectedUser ,setInp} = props;
   
     const handleClick = () => {
-       console.log("adding user");
+      console.log("adding user");
+      setInp((inp)=>""); 
       setSelectedUser((list) => [...list, udetail]);
     };
   
     return (
       <div
-        className="userinpcard cursor-pointer  px-2 py-1 rounded mb-1"
+        className="userinpcard flex w-64 h-12 gap-2 cursor-pointer  px-2 py-1 rounded mb-1 hover:bg-gray-200"
         onClick={handleClick}
-      >
-        {udetail.name}, {udetail.email}
+      > 
+        <div className="flex h-8 w-8 "><img className="rounded-full" src={udetail.image} alt="" /></div>
+        <div>{udetail.name}</div>   
+        <div>{udetail.email}</div>   
+
       </div>
     );
   };
